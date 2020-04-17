@@ -1,0 +1,19 @@
+version: "3"
+services:
+  author:
+    image: author
+    build: ./author
+    ports:
+      - "4504:4504"
+  publish:
+    image: publish
+    build: ./publish
+    ports:
+      - "4505:4505"
+  dispatcher:
+    image: dispatcher
+    build: ./dispatcher
+    ports:
+      - "8181:81"
+    depends_on:
+      - "publish"
