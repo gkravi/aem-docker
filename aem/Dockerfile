@@ -17,3 +17,5 @@ ADD cq-quickstart-6.3.0.jar cq-quickstart.jar
 
 # Unpack the jar for future use on other images
 RUN java -jar cq-quickstart.jar -unpack
+
+

@@ -3,6 +3,6 @@ FROM aem
 
 # Expose the default port for the publish instance
 EXPOSE 4504
-
-# Define the entry command so that this container always start AEM in Author mode
+COPY ./packages /opt/aem/crx-quickstart/install
+# Define the entry command so that this container always start AEM in Author mode(s)
 ENTRYPOINT ["java", "-jar", "cq-quickstart.jar", "-Dsling.run.modes=author", "-p", "4504"]

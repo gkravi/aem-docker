@@ -5,15 +5,23 @@ services:
     build: ./author
     ports:
       - "4504:4504"
+    volumes:
+      - ./logs/author:/opt/aem/crx-quickstart/logs
+      - ./packages/author:/opt/aem/crx-quickstart/install
   publish:
     image: publish
     build: ./publish
     ports:
       - "4505:4505"
+    volumes:
+      - ./logs/publisher:/opt/aem/crx-quickstart/logs
+      - ./packages/publisher:/opt/aem/crx-quickstart/install
   dispatcher:
     image: dispatcher
     build: ./dispatcher
     ports:
-      - "8181:81"
+      - "80:81"
+    volumes:
+      - ./logs/dispatcher:/etc/httpd/logs
     depends_on:
       - "publish"
